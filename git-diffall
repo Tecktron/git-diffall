@@ -80,7 +80,8 @@ merge_base=
 left_dir=
 right_dir=
 diff_tool=
-copy_back=
+# Set the default functionality to be copy back
+copy_back=1
 
 while test $# != 0
 do
