@@ -29,3 +29,23 @@ This script is based on an example provided by Thomas Rast on the
 Git list [1]:
 
 [1] http://thread.gmane.org/gmane.comp.version-control.git/124807
+
+# Install
+
+Copy the git-diffall script to the directory where your git is installed.
+
+$ cd <directory with git-diffall>
+$ cp git-diffall $(git --exec-path)
+
+Setup
+The difftool and mergetool selected for use with git-diffall must be one that has a mergetool plugin in your git installation. The plugin is a simple script that populates the command-line arguments of the difftool/mergetool using the correct values from git. Plugins exist for a variety of tools already and can be found in $(git --exec-path)/mergetools. If your favorite tool is missing, you can add it by copying an existing plugin and modifying for your tool.
+
+The config commands follow this pattern:
+
+$ git config --global diff.tool <one of the tools listed in $(git --exec-path)/mergetools>
+$ git config --global merge.tool <one of the tools listed in $(git --exec-path)/mergetools>
+
+For example:
+
+$ git config --global diff.tool bc3
+$ git config --global merge.tool bc3
